@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/" method="POST">
+        <label for="nombre">Ingrese su nombre</label>
+        <input type="text" name="nombre" id="name" placeholder="Ingresa aquí tu nombre"  >
+        <label for="colores">Selecciona el color</label>
+        <select name="colores" id="colores">
+            <option value="" selected disabled>Selecciona el color</option>
+            <option value="blanco">Blanco</option>
+            <option value="negro">Negro</option>
+        </select>
+        <label for="email">Ingrese tu email</label>
+        <input type="email" name="email" id="email" placeholder="Ingresa aquí tu email">
+        <label for="edad">Ingrese tu edad</label>
+        <input type="number" name="edad" id="edad" placeholder="Ingresa aquí tu edad">
+        <button type="submit">Enviar</button>
+    </form>
+    <% if(typeof data !='undefined'){ %>
+        <p>Hola <%= data.nombre %>, elegiste el color <%= data.colores %>, tu email es: <%= data.email %> y tu edad es <%= data.edad %></p>
+  <% } %>
+
+  <% if(typeof errors!='undefined'){ %>
+    <ul>
+      <% for (let i=0; i < errors.length; i++) { %>
+          <li style="color: red;"><%= errors[i].msg %> </li>
+      <% } %>
+    </ul>
+<% } %>
+
+
+</body>
+</html>
